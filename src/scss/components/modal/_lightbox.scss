@@ -36,7 +36,7 @@
         }
     }
 
-    .closeLightbox {
+    .closeModal {
         filter: brightness(0) saturate(100%) invert(18%) sepia(31%) saturate(4597%) hue-rotate(344deg) brightness(93%) contrast(95%);
         // to target color CF: https: //codepen.io/sosuke/pen/Pjoqqp
         position: absolute;

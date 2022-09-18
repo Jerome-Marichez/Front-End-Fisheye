@@ -4,11 +4,12 @@
         <meta charset="utf-8">
         <link rel="icon" type="image/png" href="assets/favicon.png">
         <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+        <script src="./dist/photographer.js"></script>
         <title>Fisheye - photographe</title>
     </head>
     <body>
         <header>
-            <a href="index.html" ariel-label="Link to Fisheye Home Page">
+            <a href="index.html">
                 <img src="./assets/images/logo.png" alt="Fisheye Home Page" class="logo">
             </a>
         </header>
@@ -58,24 +59,23 @@
                 </div>
                 <p id="dialogDesc" class="help_blind">Vous pouvez remplir ce formulaire avec les champs suivants afin de pouvoir envoyer un message au photographer que vous avez sélectionner.</p>
                 <img
-                    autofocus
                     tabindex="0"
                     src="./assets/icons/close.svg"
                     role="button"
                     alt="Close Contact form"
-                    id="closeModal"
+                    class="closeModal"
                 >
             </div>
             <form>
                 <div>
-                    <label for="First name">Prénom</label>
-                    <input id="First name" required>
-                    <label for="Last name">Nom</label>
-                    <input id="Last name" required>
+                    <label for="First_name">Prénom</label>
+                    <input id="First_name" required>
+                    <label for="Last_name">Nom</label>
+                    <input id="Last_name" required>
                     <label for="Email">Email</label>
                     <input id="Email" required>
-                    <label for="Your message">Votre message</label>
-                    <textarea id="Your Message"></textarea>
+                    <label for="Your_message">Votre message</label>
+                    <textarea id="Your_Message"></textarea>
                 </div>
                 <button aria-label="Send" id="contact_button" class="fisheye_button">Envoyer</button>
             </form>
@@ -88,21 +88,18 @@
             role="dialog"
         >
             <img
-                autofocus
                 tabindex="0"
                 src="./assets/icons/close.svg"
                 role="button"
                 alt="Close Dialog"
-                class="closeLightbox"
-                id="closeModal"
+                class="closeModal"
             >
             <div class="content_media">
-                <a id="previous_link" href="javascript:void(0);" aria-label="Previous Image"><</a>
+                <a id="previous_link" href="javascript:void(0);" aria-label="Previous Image">&lt;</a>
                 <a id="next_link" href="javascript:void(0);" aria-label="Next image">></a>
             </div>
             <h2 id="titleLightbox">Arc-en-Ciel</h2>
         </div>
         <footer></footer>
     </body>
-    <script src="./dist/photographer.js"></script>
 </html>
