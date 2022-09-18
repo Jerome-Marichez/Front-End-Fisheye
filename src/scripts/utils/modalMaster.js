@@ -26,7 +26,7 @@ export function modalMaster(bodyTag, headerTag, mainTag, modalID) {
         document.getElementById("openModal").addEventListener("click", function () {
             openModal(modalPage);
         });
-        document.querySelector(`#${modalPage.modalID} #closeModal`).addEventListener("click", function () {
+        document.querySelector(`#${modalPage.modalID} .closeModal`).addEventListener("click", function () {
             closeModal(modalPage);
         });
         document.getElementById("contact_button").addEventListener("click", function () {
@@ -44,7 +44,7 @@ export function modalMaster(bodyTag, headerTag, mainTag, modalID) {
             }));
 
 
-        document.querySelector(`#${modalPage.modalID} #closeModal`).addEventListener("click", function () {
+        document.querySelector(`#${modalPage.modalID} .closeModal`).addEventListener("click", function () {
             closeModal(modalPage);
         });
 
@@ -216,7 +216,7 @@ export function modalMaster(bodyTag, headerTag, mainTag, modalID) {
         effectAnimation("hide_content", "show_content", modalPage); // Effect Modal CSS
         modalPage.modalHTML.style.display = "block"; // Display the Modal at the screen
         addKeyboardListener(modalPage); // Add Keyboard Events
-        document.querySelector(`#${modalPage.modalID} #closeModal`).focus(); // Focus the Close Modal 
+        document.querySelector(`#${modalPage.modalID} .closeModal`).focus(); // Focus the Close Modal 
 
         // Disable click or focus with inert to the BackgroundPage 
         backgroundPage.headerHTML.inert = true;
