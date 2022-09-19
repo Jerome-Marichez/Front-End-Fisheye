@@ -1,7 +1,7 @@
 import { photographerFactory } from "../factories/photographerFactory";
 
 
-export async function displayData(photographers, id) {
+export async function displayPhotographer(photographers, id) {
     let photographerSelected = "";
 
     photographers.forEach((photographer) => {
@@ -11,7 +11,7 @@ export async function displayData(photographers, id) {
             if (process.env.NODE_ENV === 'development') { console.log(photographer); }
             const photographerModel = photographerFactory(photographer);
             photographerModel.setPhotographerHeader();
-            photographerModel.setStickyBarPrice();
+            photographerModel.setPhotographerStatistic();
 
             photographerSelected = photographer;
             // End of PhotographerFactory Work
@@ -24,7 +24,7 @@ export async function displayData(photographers, id) {
 
 }
 
-export async function displayDataAll(photographers, querySelector) {
+export async function displayPhotographerAll(photographers, querySelector) {
 
     photographers.forEach((photographer) => {
 

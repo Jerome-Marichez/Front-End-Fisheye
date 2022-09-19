@@ -1,6 +1,8 @@
 import { setInnerHtml } from "./dom";
 import "wicg-inert";
 
+
+
 export function modalMaster(bodyTag, headerTag, mainTag, modalID) {
 
 
@@ -179,10 +181,7 @@ export function modalMaster(bodyTag, headerTag, mainTag, modalID) {
         return setInnerHtml(`#${modalPage.modalID} ${targetSelector}`, titleModal);
     }
 
-
-
-
-
+    
     function effectAnimation(hideclass, showclass, modalPage) {
         if (modalPage.visible === 0) {
             backgroundPage.mainHTML.classList.remove(showclass);

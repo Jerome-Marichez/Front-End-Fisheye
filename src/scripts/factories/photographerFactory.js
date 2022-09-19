@@ -60,7 +60,7 @@ export function photographerFactory(data) {
         /** */
     }
 
-    function setStickyBarPrice() {
+    function setPhotographerStatistic() {
         if (price) {
             setInnerHtml(".price_rate_daily", `${price} € / jour`);
         }
@@ -69,5 +69,5 @@ export function photographerFactory(data) {
         }
     }
 
-    return { name, picture, getUserCardDOM, setPhotographerHeader, setStickyBarPrice };
+    return { name, picture, getUserCardDOM, setPhotographerHeader, setPhotographerStatistic };
 }
