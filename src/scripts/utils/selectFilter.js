@@ -56,7 +56,6 @@ export function selectFilterComponent(idURL) {
     };
 
 
-
     selectFilterSelect1.addEventListener("click", handleFilterAction);
     selectFilterSelect2.addEventListener("click", handleFilterAction);
 }

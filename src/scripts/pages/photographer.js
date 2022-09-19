@@ -2,8 +2,8 @@ import "core-js/stable";
 import "regenerator-runtime/runtime";
 
 import '../../scss/main.scss';
-import { getPhotographers, getMedias } from '../utils/fetch';
-import { displayData } from '../data/displayData';
+import { getPhotographersJSON, getMediasJSON } from '../utils/fetch';
+import { displayPhotographer } from '../data/displayPhotographer';
 import { displayMedia } from '../data/displayMedia';
 import { getUrlParameter } from '../utils/getUrlParameter';
 import { sortByLikes } from '../utils/sortBy';
@@ -17,9 +17,9 @@ async function initProfile(idURL) {
     // Try to get data from photographers if error then redirect to 404 page
     try {
         // SET Photographer Profile DATA
-        const photographers = await getPhotographers();
+        const photographers = await getPhotographersJSON();
         // Return the photographer Display
-        const photographerSelected = await displayData(photographers, idURL);
+        const photographerSelected = await displayPhotographer(photographers, idURL);
         // END SET Photographer Profile Data
 
         if (photographerSelected) {
@@ -35,8 +35,6 @@ async function initProfile(idURL) {
             }
 
         }
-
-
 
     } catch (e) {
         console.error(e);
@@ -74,6 +72,23 @@ async function initContactForm(photographerSelected) {
     }
 }
 
+export async function initMedia(idURL, sortBy) {
+    // Try to get data & build section media if error then redirect to 404 page
+    try {
+
+        // Build Medias 
+        const medias = await getMediasJSON();
+        const selectedMedias = await displayMedia(medias.sort(sortBy), ".media_section", idURL); // SortBy must be a function of sort
+        // End build Medias 
+        console.log("Section média initié avec succès depuis initMedia()");
+
+        initLightbox(selectedMedias);  // Initialize LightBox Modal with selected medias
+    } catch (e) {
+        console.error(e);
+    }
+
+}
+
 async function initLightbox(selectedMedias) {
     try {
         const lightBox = modalMaster("body", "header", "main", "lightbox_modal"); // Create a Model Master
@@ -91,22 +106,7 @@ async function initLightbox(selectedMedias) {
 
 }
 
-export async function initMedia(idURL, sortBy) {
-    // Try to get data & build section media if error then redirect to 404 page
-    try {
 
-        // Build Medias 
-        const medias = await getMedias();
-        const selectedMedias = await displayMedia(medias.sort(sortBy), ".media_section", idURL); // SortBy must be a function of sort
-        // End build Medias 
-        console.log("Section média initié avec succès depuis initMedia()");
-
-        initLightbox(selectedMedias);  // Initialize LightBox Modal with selected medias
-    } catch (e) {
-        console.error(e);
-    }
-
-}
 
 
 async function initMain() {
